@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.e_commerce.business.services.ProdutoService;
 import com.example.e_commerce.business.services.UsuarioService;
+import com.example.e_commerce.domain.dto.CartaoDTO;
 import com.example.e_commerce.domain.dto.ProdutoDTO;
 import com.example.e_commerce.domain.dto.UsuarioDTO;
 
@@ -37,6 +38,11 @@ public class ECommerceController {
     @PostMapping("/usuario")
     public ResponseEntity<UsuarioDTO> registraUsuario(@RequestBody UsuarioDTO usuario) {
         return ResponseEntity.ok(usuarioService.registraUsuario(usuario));
+    }
+
+    @PostMapping("/cartao")
+    public ResponseEntity<CartaoDTO> registraCartao(@RequestBody CartaoDTO cartao) {
+        return ResponseEntity.ok(usuarioService.registraCartao(cartao));
     }
     
 }
