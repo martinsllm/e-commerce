@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.example.e_commerce.domain.dto.ProdutoDTO;
 import com.example.e_commerce.infraestructure.clients.ProdutoClient;
+import com.example.e_commerce.infraestructure.exceptions.BusinessException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -16,15 +17,16 @@ public class ProdutoService {
         try {
             return produtoClient.buscaTodosProdutos();
         } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            throw new BusinessException(e.getMessage());
         }
+        
     }
 
     public ProdutoDTO buscaProdutoPorNome(String nome) {
         try {
             return produtoClient.buscaProdutoPorNome(nome);
         } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            throw new BusinessException(e.getMessage());
         }
     }
     
