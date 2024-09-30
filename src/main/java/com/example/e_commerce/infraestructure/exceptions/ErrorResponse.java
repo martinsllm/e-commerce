@@ -1,4 +1,4 @@
-package com.example.e_commerce.infraestructure.exceptions.handler;
+package com.example.e_commerce.infraestructure.exceptions;
 
 import java.time.LocalDateTime;
 import lombok.*;
