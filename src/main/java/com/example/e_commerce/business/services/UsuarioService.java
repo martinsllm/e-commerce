@@ -19,5 +19,9 @@ public class UsuarioService {
     public CartaoDTO registraCartao(CartaoDTO cartao) {
         return usuarioClient.registraCartao(cartao);
     }
+
+    public Boolean validaPagamento(CartaoDTO cartao) {
+        return usuarioClient.validarPagamento(cartao);
+    }
     
 }

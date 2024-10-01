@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.e_commerce.business.services.LojaVirtualService;
 import com.example.e_commerce.business.services.ProdutoService;
 import com.example.e_commerce.business.services.UsuarioService;
 import com.example.e_commerce.domain.dto.CartaoDTO;
+import com.example.e_commerce.domain.dto.CompraDTO;
 import com.example.e_commerce.domain.dto.ProdutoDTO;
 import com.example.e_commerce.domain.dto.UsuarioDTO;
 
@@ -22,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ECommerceController {
 
+    private final LojaVirtualService lojaVirtualService;
     private final ProdutoService produtoService;
     private final UsuarioService usuarioService;
 
@@ -43,6 +46,11 @@ public class ECommerceController {
     @PostMapping("/cartao")
     public ResponseEntity<CartaoDTO> registraCartao(@RequestBody CartaoDTO cartao) {
         return ResponseEntity.ok(usuarioService.registraCartao(cartao));
+    }
+
+    @PostMapping("/compra")
+    public ResponseEntity<String> realizaCompra(@RequestBody CompraDTO compra) {
+        return ResponseEntity.ok(lojaVirtualService.realizarCompra(compra));
     }
     
 }
